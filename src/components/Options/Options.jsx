@@ -1,18 +1,4 @@
-const Options = ({ feedback, setFeedback, totalFeedback }) => {
-  const handleFeedback = (type) => {
-    setFeedback((prevFeedback) => ({
-      ...prevFeedback,
-      [type]: prevFeedback[type] + 1
-    }));
-  };
-
-  const resetFeedback = () => {
-    setFeedback({
-      good: 0,
-      neutral: 0,
-      bad: 0
-    });
-  };
+const Options = ({ feedback, setFeedback, totalFeedback,handleFeedback,resetFeedback }) => {
 
   return (
     <div>

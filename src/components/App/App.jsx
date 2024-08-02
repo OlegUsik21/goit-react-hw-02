@@ -21,6 +21,21 @@ function App() {
 
   const positiveFeedback = totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
 
+    const handleFeedback = (type) => {
+    setFeedback((prevFeedback) => ({
+      ...prevFeedback,
+      [type]: prevFeedback[type] + 1
+    }));
+  };
+
+  const resetFeedback = () => {
+    setFeedback({
+      good: 0,
+      neutral: 0,
+      bad: 0
+    });
+  };
+
   return (
     <div>
       <Description />
@@ -28,6 +43,8 @@ function App() {
           feedback={feedback}
           setFeedback={setFeedback}
           totalFeedback={totalFeedback}
+          handleFeedback={handleFeedback}
+          resetFeedback={resetFeedback}
       />
       {totalFeedback > 0 ? <Feedback
         feedback={feedback}
